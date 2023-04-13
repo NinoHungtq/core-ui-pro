@@ -1,4 +1,7 @@
+
 import * as axios from 'axios'
+import { storage } from './webStorage'
+import { AUTH_SESSION_KEY } from 'src/constants/constants'
 
 const controller = new AbortController()
 
@@ -20,15 +23,13 @@ axiosClient.interceptors.response.use(
 
 axiosClient.interceptors.request.use(
   (request) => {
-    // config token
-
-    // const session = storage.load(AUTH_SESSION_KEY)
-    // if (session) {
-    //   request.headers = {
-    //     ...request.headers,
-    //     Authorization: `Bearer ${session?.token}`,
-    //   }
-    // }
+    const session = storage.load(AUTH_SESSION_KEY)
+    if (session) {
+      request.headers = {
+        ...request.headers,
+        Authorization: `Bearer ${session?.accessToken}`,
+      }
+    }
 
     return {
       ...request,

@@ -1,6 +1,8 @@
-import React, { Component, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './scss/style.scss'
+import { ErrorBoundary } from 'react-error-boundary'
+import { ErrorFallback } from './components/ErrorFallback'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -20,9 +22,9 @@ const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
 // Email App
 const EmailApp = React.lazy(() => import('./views/apps/email/EmailApp'))
 
-class App extends Component {
-  render() {
-    return (
+export const App = () => {
+  return (
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Suspense fallback={loading}>
         <Routes>
           <Route exact path="/login" name="Login Page" element={<Login />} />
@@ -33,8 +35,6 @@ class App extends Component {
           <Route path="*" element={<DefaultLayout />} />
         </Routes>
       </Suspense>
-    )
-  }
+    </ErrorBoundary>
+  )
 }
-
-export default App

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react-pro'
 import CIcon from '@coreui/icons-react'
@@ -32,11 +31,6 @@ const DocsExample = (props) => {
       </CTabContent>
     </div>
   )
-}
-
-DocsExample.propTypes = {
-  children: PropTypes.node,
-  href: PropTypes.string,
 }
 
 export default React.memo(DocsExample)

@@ -1,23 +1,13 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import { AUTH_SESSION_KEY } from 'src/constants/constants'
-import { storage } from 'src/libs/web-storage'
+import { useAuth } from 'src/hooks/useAuth'
 
 export const ProtectedRoute = ({ children }) => {
-  const session = storage.load(AUTH_SESSION_KEY)
+  const { isAuthentication } = useAuth()
 
-  if (!session?.token) {
+  if (!isAuthentication) {
     // user is not authenticated
     return <Navigate to="/login" />
   }
-  return (
-    <>
-      {children}
-    </>
-  )
-}
-
-ProtectedRoute.propTypes = {
-  children: PropTypes.node,
+  return <>{children}</>
 }

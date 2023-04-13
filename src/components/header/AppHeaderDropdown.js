@@ -23,14 +23,14 @@ import {
 import CIcon from '@coreui/icons-react'
 
 import avatar8 from './../../assets/images/avatars/8.jpg'
-import { storage } from 'src/libs/web-storage'
+import { storage } from 'src/libs/webStorage'
 import { useNavigate } from 'react-router-dom'
 
 const AppHeaderDropdown = () => {
   const navigate = useNavigate()
 
   const onLogout = () => {
-    storage.clear();
+    storage.clearAll();
     navigate('/login')
   }
 

@@ -15,15 +15,17 @@ import {
 } from '@coreui/react-pro'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
-import { storage } from 'src/libs/web-storage'
+import { storage } from 'src/libs/webStorage'
 import { AUTH_SESSION_KEY } from 'src/constants/constants'
 
 const Login = () => {
   const navigate = useNavigate()
   const onLogin = () => {
     storage.save(AUTH_SESSION_KEY, {
-      username: '1',
-      token: 'abc',
+      accessToken:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MTBmZjhmLWM5OTctNDkyZC04YzVkLWMxMmM1MzgyOWRkMSIsImVtYWlsIjoidmluaG5xQHZtb2Rldi5jb20iLCJyb2xlIjoiU3VwZXJBZG1pbiIsInBlcm1pc3Npb25zIjpbIkFkbWlucy5VcGRhdGUiXSwiaWF0IjoxNjgxMzgxMjQ1LCJleHAiOjE2ODEzODIwODV9.qs8qqYsbEN2JflVcJRiuGSeRWorKm4EW4GDc_dTbAJE',
+      refreshToken:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MTBmZjhmLWM5OTctNDkyZC04YzVkLWMxMmM1MzgyOWRkMSIsImlhdCI6MTY4MTM4MTI0NSwiZXhwIjoxNjgxMzg5NjQ1fQ.LMU6wMNr3NECQ-5-0_PVxNceO9geJhoy36kPGVOu6N0',
     })
     navigate('/')
   }

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 module.exports = {
   // parser: '@typescript-eslint/parser', // Specifies the ESLint parser
   parserOptions: {
@@ -22,6 +23,7 @@ module.exports = {
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+    'react/prop-types': 'off',
     'react/display-name': 'off',
     "prettier/prettier": "off",
     "no-unused-vars": "warn",

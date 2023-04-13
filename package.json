@@ -33,14 +33,18 @@
     "classnames": "^2.3.2",
     "core-js": "^3.29.0",
     "env-cmd": "^10.1.0",
-    "prop-types": "^15.8.1",
+    "formik": "^2.2.9",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.3",
+    "react-query": "^3.39.3",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.2",
     "redux": "4.2.1",
-    "simplebar-react": "^2.4.3"
+    "simplebar-react": "^2.4.3",
+    "yup": "^1.1.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

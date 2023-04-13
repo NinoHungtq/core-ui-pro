@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { CCallout, CLink } from '@coreui/react-pro'
 
@@ -27,12 +26,6 @@ const DocsCallout = (props) => {
       .
     </CCallout>
   )
-}
-
-DocsCallout.propTypes = {
-  children: PropTypes.node,
-  href: PropTypes.string,
-  name: PropTypes.string,
 }
 
 export default React.memo(DocsCallout)

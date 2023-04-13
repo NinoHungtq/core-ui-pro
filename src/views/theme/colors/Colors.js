@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { useEffect, useState, createRef } from 'react'
 import classNames from 'classnames'
 import { CRow, CCol, CCard, CCardHeader, CCardBody } from '@coreui/react-pro'
@@ -40,11 +39,6 @@ const ThemeColor = ({ className, children }) => {
       <ThemeView />
     </CCol>
   )
-}
-
-ThemeColor.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
 }
 
 const Colors = () => {

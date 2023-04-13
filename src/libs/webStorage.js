@@ -28,10 +28,19 @@ const createStorage = (PREFIX) => {
     }
   }
 
+  function clearAll() {
+    try {
+      return localStorage.clear()
+    } catch (e) {
+      console.error('Error in storage.clearAll', e)
+    }
+  }
+
   return {
     save,
     load,
     clear,
+    clearAll
   }
 }
 
