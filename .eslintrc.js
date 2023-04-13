@@ -24,5 +24,8 @@ module.exports = {
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
     'react/display-name': 'off',
     "prettier/prettier": "off",
+    "no-unused-vars": "warn",
+    "no-console": ["warn", { "allow": ["error"] }],
+    "eqeqeq": ["error", "always"]
   },
 }
