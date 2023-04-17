@@ -18,7 +18,7 @@ import { cilLockLocked, cilUser } from '@coreui/icons'
 import { storage } from 'src/libs/webStorage'
 import { AUTH_SESSION_KEY } from 'src/constants/constants'
 
-const Login = () => {
+ const Login = () => {
   const navigate = useNavigate()
   const onLogin = () => {
     storage.save(AUTH_SESSION_KEY, {
