@@ -3,6 +3,6 @@ import API from '@libs'
 
 const { post } = API
 
-export const login = (data) => {
+export const onLogin = (data) => {
   return post(ENDPOINT.AUTH.LOGIN, data)
 }

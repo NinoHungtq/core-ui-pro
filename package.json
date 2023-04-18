@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "author": "Nino",
   "scripts": {
-    "build:dev": "react-scripts build",
-    "build:stg": "react-scripts build",
-    "build:prod": "react-scripts build",
+    "build:dev": "env-cmd -f .env.dev react-scripts build",
+    "build:stg": "env-cmd -f .env.stg react-scripts build",
+    "build:prod": "env-cmd -f .env.prod react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.js\"",
     "start:dev": "env-cmd -f .env.dev react-scripts start",

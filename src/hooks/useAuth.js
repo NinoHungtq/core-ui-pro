@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 export const useAuth = () => {
   const session = storage.load(AUTH_SESSION_KEY)
   const accessToken = session?.accessToken || ''
-  const currentUser = useMemo(() => jwt_decode(accessToken) || null, [accessToken])
+  const currentUser = useMemo(() => (accessToken ? jwt_decode(accessToken) : null), [accessToken])
 
   return {
     isAuthentication: !!accessToken,
