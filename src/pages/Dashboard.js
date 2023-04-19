@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 
 // import {
 //   CAvatar,
@@ -469,8 +469,82 @@ import React from 'react'
 
 // export default Dashboard
 
+import React, { useEffect, useState } from 'react'
+import { CBadge, CSmartTable } from '@coreui/react-pro'
+
+import data from 'src/__mocks__/data'
+
 const Dashboard = () => {
-  return <>Dashboard</>
+  return (
+    <>
+      <SmartTableBasicExample />
+    </>
+  )
 }
 
 export default Dashboard
+
+const SmartTableBasicExample = () => {
+  const [loading, setLoading] = useState()
+
+  useEffect(() => {
+    setLoading(true)
+    const timeout = setTimeout(setLoading(false), 500)
+    return () => clearTimeout(timeout)
+  }, [])
+
+  const columns = [
+    {
+      key: 'name',
+      _style: { width: '40%' },
+    },
+    'registered',
+    { key: 'role', _style: { width: '20%' } },
+    { key: 'status', _style: { width: '20%' } },
+  ]
+  const getBadge = (status) => {
+    switch (status) {
+      case 'Active':
+        return 'success'
+      case 'Inactive':
+        return 'secondary'
+      case 'Pending':
+        return 'warning'
+      case 'Banned':
+        return 'danger'
+      default:
+        return 'primary'
+    }
+  }
+
+  return (
+    <CSmartTable
+      loading={loading}
+      sorterValue={{ column: 'name', state: 'asc' }}
+      clickableRows
+      tableProps={{
+        striped: true,
+        hover: true,
+        responsive: true,
+      }}
+      activePage={1}
+      // footer
+      items={data}
+      columns={columns}
+      // columnFilter
+      // // tableFilter
+      // cleaner
+      itemsPerPageSelect
+      itemsPerPage={5}
+      columnSorter
+      pagination
+      scopedColumns={{
+        status: (item) => (
+          <td>
+            <CBadge color={getBadge(item.status)}>{item.status}</CBadge>
+          </td>
+        ),
+      }}
+    />
+  )
+}
