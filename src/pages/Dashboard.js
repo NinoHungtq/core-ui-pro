@@ -526,6 +526,8 @@ const SmartTableBasicExample = () => {
         striped: true,
         hover: true,
         responsive: true,
+        bordered: true,
+        align: 'center',
       }}
       activePage={1}
       // footer
